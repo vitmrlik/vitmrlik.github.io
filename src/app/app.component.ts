@@ -8,23 +8,33 @@ import {Component, NgZone, OnDestroy} from '@angular/core';
 export class AppComponent implements OnDestroy {
   title = 'mal-maps';
   showOldMap = true;
-  opacity = 1;
+  opacity = 0.1;
 
   map;
   mapClickListener;
 
   // map zoom level
-  zoom: number = 14;
+  zoom: number = 15;
 
   // initial center position for the map
   defaultMapPosition = {
-    lat: 49.20390905014341,
-    lng: 17.597403397252137,
+    lat: 49.20812882290773,
+    lng: 17.595279087712342,
   };
 
   oldMapPosition = {
-    lat: 49.20169089718813,
-    lng: 17.589595155109237,
+    lat: 49.20169028265298,
+    lng: 17.589803490611967,
+    bounds: {
+      x: {
+        latitude: 0,
+        longitude: 0
+      },
+      y: {
+        latitude: 0.0108,
+        longitude:0.0132
+      }
+    }
   }
 
   constructor(protected zone: NgZone) {}
@@ -42,8 +52,9 @@ export class AppComponent implements OnDestroy {
     );
 
     this.oldMapPosition = {
+      ...this.oldMapPosition,
       lat: lat,
-      lng: lng
+      lng: lng,
     }
 
     // this.markers.push({
@@ -94,6 +105,20 @@ export class AppComponent implements OnDestroy {
   setOpacity(number: number) {
     this.showOldMap = true;
     this.opacity = number;
+  }
+
+  setBoundLat(number: number) {
+    this.showOldMap = false;
+    this.oldMapPosition.bounds.y.latitude = this.oldMapPosition.bounds.y.latitude + number;
+    this.oldMapPosition.bounds.y.longitude = this.oldMapPosition.bounds.y.longitude + number;
+    this.showOldMap = true;
+
+    console.log(this.oldMapPosition.bounds.y)
+  }
+
+  setBoundLng(number: number) {
+    this.oldMapPosition.bounds.y.longitude = this.oldMapPosition.bounds.y.longitude + number;
+    console.log(this.oldMapPosition.bounds)
   }
 }
 

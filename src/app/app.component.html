@@ -1,10 +1,14 @@
-<h1>Historická Mapka Malenovic</h1>
+<h2>Historická Mapka Malenovic</h2>
 
 <div style="margin: 8px">
   <button (click)="oldMapShowToggle()">zobrazit/skrýt mapu</button>
   <button (click)="setOpacity(0.1)">0.1</button>
   <button (click)="setOpacity(0.4)">0.4</button>
   <button (click)="setOpacity(1)">1.</button>
+
+<!--  <button style="margin-left: 12px" (click)="setBoundLat(0.0002)">+Lat</button>-->
+<!--  <button (click)="setBoundLat(-0.0002)">-Lat</button>-->
+
 </div>
 
 <agm-map
@@ -19,9 +23,9 @@
     *ngIf="showOldMap"
     [latitude]  = "oldMapPosition.lat"
     [longitude] = "oldMapPosition.lng"
-    [bounds] = "{x:{latitude:0,longitude:0},y:{latitude:0.0106,longitude:0.013}}"
+    [bounds] = "oldMapPosition.bounds"
   >
-    <img style="width:15px;height:15px;" src="assets/old-map-sm.jpg" alt="mapa" [ngStyle]="{'opacity': opacity}">
+    <img style="width:1px;height:1px;" src="assets/old-map-md.jpg" alt="mapa" [ngStyle]="{'opacity': opacity}">
   </agm-overlay>
 
   <agm-marker
