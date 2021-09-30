@@ -1,3 +1,8 @@
+https://developers.google.com/maps/documentation/javascript/examples?hl=en
+
+https://github.com/googlemaps/js-samples/tree/da137a5a1b929428d3b30f7180e6067677afd748/dist/samples/overlay-simple
+
+
 # Malenowitz Maps
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
