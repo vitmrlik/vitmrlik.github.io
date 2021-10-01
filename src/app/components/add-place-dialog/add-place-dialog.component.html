@@ -1,0 +1,28 @@
+<div class="dialog">
+
+  <h2>Přidat novou lokalitu</h2>
+
+  <form class="example-form" (ngSubmit)="save()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Název</mat-label>
+      <input type="email" matInput placeholder="Kostel..." [(ngModel)]="place.name" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>.jpg</mat-label>
+      <input type="email" matInput placeholder="kostel1966" [(ngModel)]="place.file" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Popis</mat-label>
+      <textarea matInput placeholder="Od pradávna tu stojí..." rows="9" [(ngModel)]="place.description" [ngModelOptions]="{standalone: true}"></textarea>
+    </mat-form-field>
+    <br>
+
+
+    <button mat-stroked-button style="" (click)="save()">Uložit</button>
+  </form>
+
+</div>

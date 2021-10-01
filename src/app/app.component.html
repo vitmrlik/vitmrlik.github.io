@@ -1,13 +1,17 @@
 <h2>Historická Mapka Malenovic</h2>
+<ul>
+  <li>pro přidání bodů deaktivuj - skryj historickou mapu</li>
+  <li>klikni a přidej místo, popis, název fotky</li>
+  <li>klikni na tlačítko "Vypsat do konzole", otevři konzoli /F12/, zkopíruj poslední objekt ("Copy object")</li>
+  <li>pozor, nerefreshuj stránku, jinak se data smažou!</li>
+</ul>
 
 <div style="margin: 8px">
   <button (click)="oldMapShowToggle()">zobrazit/skrýt mapu</button>
-  <button (click)="setOpacity(0.1)">0.1</button>
-  <button (click)="setOpacity(0.4)">0.4</button>
-  <button (click)="setOpacity(1)">1.</button>
-
-<!--  <button style="margin-left: 12px" (click)="setBoundLat(0.0002)">+Lat</button>-->
-<!--  <button (click)="setBoundLat(-0.0002)">-Lat</button>-->
+  <button (click)="setOpacity(0.1)">průhlednost 10%</button>
+  <button (click)="setOpacity(0.4)">průhlednost 40%</button>
+  <button (click)="setOpacity(1)">viditelné 100%</button>
+<!--  <button (click)="markersToggle()">zobrazit/skrýt lokality</button>-->
 
 </div>
 
@@ -24,24 +28,33 @@
     [latitude]  = "oldMapPosition.lat"
     [longitude] = "oldMapPosition.lng"
     [bounds] = "oldMapPosition.bounds"
+    (click)="$event.stopPropagation()"
   >
-    <img style="width:1px;height:1px;" src="assets/old-map-md.jpg" alt="mapa" [ngStyle]="{'opacity': opacity}">
+    <img (click)="$event.stopPropagation()" style="width:1px;height:1px;" src="assets/old-map-md.jpg" alt="mapa" [ngStyle]="{'opacity': opacity}">
   </agm-overlay>
 
   <agm-marker
     *ngFor="let m of markers; let i = index"
     [latitude]="m.lat"
     [longitude]="m.lng"
-    [label]="m.label"
-    [markerDraggable]="m.draggable">
+    [markerDraggable]="false">
 
     <agm-info-window>
-      <strong>Vytvořit místo  </strong>
-      <button>
-        +
+      <strong>{{m.data.name}}</strong>
+      <button style="margin-left: 8px" (click)="deleteMark(m.id)">
+        smazat
       </button>
     </agm-info-window>
 
   </agm-marker>
 
 </agm-map>
+
+<div>
+  <h2>soupis lokalit</h2>
+  <ul>
+    <li *ngFor="let mark of markers">
+      {{ mark.data.name }} - {{ mark.data.description }}   | {{ mark.data.file }}.jpg</li>
+  </ul>
+  <button style="margin-left: 8px" (click)="output()">vypsat do konzole</button>
+</div>

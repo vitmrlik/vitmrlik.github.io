@@ -1,4 +1,6 @@
 import {Component, NgZone, OnDestroy} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {AddPlaceDialogComponent} from './components/add-place-dialog/add-place-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +39,7 @@ export class AppComponent implements OnDestroy {
     }
   }
 
-  constructor(protected zone: NgZone) {}
+  constructor(protected zone: NgZone, private dialog: MatDialog) {}
 
   oldMapShowToggle() {
     this.showOldMap = !this.showOldMap;
@@ -51,18 +53,31 @@ export class AppComponent implements OnDestroy {
       }`
     );
 
-    this.oldMapPosition = {
-      ...this.oldMapPosition,
-      lat: lat,
-      lng: lng,
-    }
-
-    // this.markers.push({
+    // this.oldMapPosition = {
+    //   ...this.oldMapPosition,
     //   lat: lat,
     //   lng: lng,
-    //   draggable: false
-    // });
+    // }
 
+
+    let dialogRef = this.dialog.open(AddPlaceDialogComponent, {
+      height: '500px',
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result){
+        return;
+      }
+      console.log(`Dialog result:`, result);
+      this.markers.push({
+        id: this.markers.length,
+        lat: lat,
+        lng: lng,
+        data: result
+      });
+      console.log(this.markers);
+    });
   }
 
   mapReadyHandler(map: google.maps.Map): void {
@@ -80,27 +95,8 @@ export class AppComponent implements OnDestroy {
     }
   }
 
-
-  markers: marker[] = [
-    // {
-    //   lat: 51.673858,
-    //   lng: 7.815982,
-    //   label: 'A',
-    //   draggable: true
-    // },
-    // {
-    //   lat: 51.373858,
-    //   lng: 7.215982,
-    //   label: 'B',
-    //   draggable: false
-    // },
-    // {
-    //   lat: 51.723858,
-    //   lng: 7.895982,
-    //   label: 'C',
-    //   draggable: true
-    // }
-  ]
+  markers: marker[] = [ { "id": 1, "lat": 49.20735603027842, "lng": 17.595353225944535, "data": { "name": "Kruhový objezd", "file": "objezd1990", "description": "Fotka jak se to stavilo v roce 2015. Pozorně si prohlédněte dělníka s červenou čepicí." } }, { "id": 1, "lat": 49.20932904146495, "lng": 17.59640006301824, "data": { "name": "Hospoda na rožku", "file": "hospoda1940", "description": "Podle této budovy, a také podle areálu VLW je zarovnána historická mapa." } }, { "id": 2, "lat": 49.20277841063265, "lng": 17.5956347590512, "data": { "name": "Alej rodinných domů", "file": "zabrani1889", "description": "Docela zajímavé pokoukaní, že tady historická mapa hezky sedí." } } ]
+  showMarkers = true;
 
   setOpacity(number: number) {
     this.showOldMap = true;
@@ -116,16 +112,40 @@ export class AppComponent implements OnDestroy {
     console.log(this.oldMapPosition.bounds.y)
   }
 
-  setBoundLng(number: number) {
-    this.oldMapPosition.bounds.y.longitude = this.oldMapPosition.bounds.y.longitude + number;
-    console.log(this.oldMapPosition.bounds)
+  editMark(id: number) {
+    let is = this.markers.find(m => m.id === id);
+    console.log(is);
+    let dialogRef = this.dialog.open(AddPlaceDialogComponent, {
+      height: '500px',
+      width: '600px',
+      data: { place: is.data }
+    });
+  }
+
+  deleteMark(id: number) {
+    const index = this.markers.map(m => m.id).indexOf(id);
+    this.markers.splice(index, 1);
+  }
+
+  output() {
+    console.log('EXPORT >> ', this.markers);
+  }
+
+  markersToggle() {
+    this.showMarkers = !this.showMarkers;
   }
 }
 
 // just an interface for type safety.
 interface marker {
+  id: number;
   lat: number;
   lng: number;
-  label?: string;
-  draggable?: boolean;
+  data: Place;
+}
+
+export interface Place {
+  name: string,
+  file: string,
+  description: string
 }
