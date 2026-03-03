@@ -2,9 +2,9 @@ import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { GratitudeEntry, User, Category } from "../types";
 
 // These would typically be environment variables
-const supabaseUrl = "https://bkhdfjnuxrvrytzibryv.supabase.co";
+const supabaseUrl = "https://hzegjwamvaylgazivcvd.supabase.co";
 const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJraGRmam51eHJ2cnl0emlicnl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMzMzYxNTUsImV4cCI6MjA1ODkxMjE1NX0.eVytqCIXt9MIF0VmtVaJnjyaW6Rr4DeOzbyUCdfcids";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6ZWdqd2FtdmF5bGdheml2Y3ZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1Mjg5NjMsImV4cCI6MjA4ODEwNDk2M30.1HgiYzB8r6FUIdm4DTXEj2fuSeee4QiUOL4AxQ-ODJ0";
 
 class SupabaseService {
   private client: SupabaseClient;
