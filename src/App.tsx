@@ -1,9 +1,7 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter } from "react-router-dom";
 import Index from "./pages/Index";
 import { useState, useEffect } from "react";
 
@@ -18,7 +16,7 @@ const App = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -28,13 +26,11 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Index />
-        </TooltipProvider>
-      </BrowserRouter>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Index />
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };
