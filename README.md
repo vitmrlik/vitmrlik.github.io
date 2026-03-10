@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# Gratitude Project
 
-## Project info
+A simple application designed to cultivate a daily gratitude habit. Because writing down one good thing every day can change your entire perspective on the world.
 
-**URL**: https://lovable.dev/projects/1e866ded-5be8-4716-9122-c51e075a6818
+[View Live Demo](https://vitmrlik.github.io/)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Why Gratitude?
 
-**Use Lovable**
+Scientific studies confirm that practicing gratitude is more than just a "feel-good" trend; it has a measurable impact on our biology and psychology.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1e866ded-5be8-4716-9122-c51e075a6818) and start prompting.
+> "Gratitude is the strongest medicine, with no side effects."
+> — **Robert A. Emmons, Ph.D.** (The world's leading scientific expert on gratitude)
 
-Changes made via Lovable will be committed automatically to this repo.
+### Science-Backed Benefits:
+* **Better Sleep:** People who keep a gratitude journal sleep longer and report higher sleep quality.
+* **Stress Reduction:** It can lower cortisol levels by up to 23%.
+* **Long-term Happiness:** Regular entries can increase long-term happiness levels by over 10%.
 
-**Use your preferred IDE**
+**Source:** [Emmons, R. A., & McCullough, M. E. (2003). Counting blessings versus burdens.](https://pubmed.ncbi.nlm.nih.gov/12585811/)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tech Stack
 
-Follow these steps:
+Built with a modern, high-performance frontend ecosystem, focusing on type safety and a premium UI/UX.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Technology | Why I chose it? |
+| :--- | :--- |
+| **Vite + React (TS)** | Rapid development speed and robust type safety with TypeScript. |
+| **Shadcn/UI** | Beautiful, accessible, and fully customizable components built on Radix UI. |
+| **Tailwind CSS** | Utility-first styling for fast iteration and perfect responsiveness. |
+| **Supabase** | Backend-as-a-Service for seamless authentication and real-time data. |
+| **TanStack Query** | Efficient data fetching, caching, and state synchronization. |
+| **React Hook Form + Zod** | Robust form validation with minimal re-renders. |
+| **Lucide React** | Clean and consistent iconography for a modern look. |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🚀 Quick Start
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/vitmrlik/vitmrlik.github.io.git](https://github.com/vitmrlik/vitmrlik.github.io.git)
+   cd vitmrlik.github.io
+    ```
 
-**Edit a file directly in GitHub**
+2.  **Install dependencies::**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+    ```bash
+    npm install
+    ```
 
-**Use GitHub Codespaces**
+3.  **Launch the development server:**
+    ```bash
+    npm run dev
+    ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1e866ded-5be8-4716-9122-c51e075a6818) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with ♥️ for a better mindset.
