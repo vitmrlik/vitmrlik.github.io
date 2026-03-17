@@ -5,7 +5,6 @@ A simple application designed to cultivate a daily gratitude habit. Because writ
 [View Live Demo](https://vitmrlik.github.io/)
 
 
-
 ## Why Gratitude?
 
 Scientific studies confirm that practicing gratitude is more than just a "feel-good" trend; it has a measurable impact on our biology and psychology.
@@ -21,7 +20,6 @@ Scientific studies confirm that practicing gratitude is more than just a "feel-g
 **Source:** [Emmons, R. A., & McCullough, M. E. (2003). Counting blessings versus burdens.](https://pubmed.ncbi.nlm.nih.gov/12585811/)
 
 
-
 ## Tech Stack
 
 Built with a modern, high-performance frontend ecosystem, focusing on type safety and a premium UI/UX.
@@ -34,8 +32,6 @@ Built with a modern, high-performance frontend ecosystem, focusing on type safet
 | **Supabase** | Backend-as-a-Service for seamless authentication and real-time data. |
 | **TanStack Query** | Efficient data fetching, caching, and state synchronization. |
 | **React Hook Form + Zod** | Robust form validation with minimal re-renders. |
-| **Lucide React** | Clean and consistent iconography for a modern look. |
-
 
 
 ## 🚀 Quick Start

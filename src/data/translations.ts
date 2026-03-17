@@ -2,8 +2,8 @@
 export const translations = {
   en: {
     // Auth screens
-    "login.title": "Welcome back",
-    "login.subtitle": "Sign in to continue your gratitude journey",
+    "login.title": "Gratitude Project",
+    "login.subtitle": "You need to log in or sign up to continue.",
     "login.email": "Email",
     "login.password": "Password",
     "login.forgotPassword": "Forgot password?",
@@ -105,8 +105,8 @@ export const translations = {
   },
   cs: {
     // Auth screens
-    "login.title": "Vítejte zpět",
-    "login.subtitle": "Přihlaste se a pokračujte ve své cestě vděčnosti",
+    "login.title": "Gratitude Project",
+    "login.subtitle": "Pro pokračování je nutné přihlášení/registrace.",
     "login.email": "Email",
     "login.password": "Heslo",
     "login.forgotPassword": "Zapomenuté heslo?",
